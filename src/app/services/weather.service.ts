@@ -22,31 +22,6 @@ export class WeatherService {
     );
   }
 
-  // Step 2: Get weather using lat & long
-  getWeather(city: string): Observable<any> {
-    return this.getLocation(city).pipe(
-      map(loc => ({
-        lat: loc.latitude,
-        lon: loc.longitude,
-        city: loc.name
-      })),
-      // call weather API
-      map(loc =>
-        this.http.get<any>(
-          `https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}&current_weather=true`
-        ).pipe(
-          map(weather => ({
-            city: loc.city,
-            temperature: weather.current_weather.temperature,
-            wind: weather.current_weather.windspeed
-          }))
-        )
-      ),
-      // flatten observable
-      catchError(err => throwError(() => err))
-    );
-  }
-
   getWeatherByCoords(lat: number, lon: number, city: string): Observable<any> {
     return this.http.get<any>(
       `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`
