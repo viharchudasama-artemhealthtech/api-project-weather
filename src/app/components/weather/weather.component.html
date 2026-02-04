@@ -1,0 +1,20 @@
+<p>weather works!</p>
+<div style="text-align:center;width:320px;margin:auto">
+
+    <h2>🌤️ Free Weather App</h2>
+
+    <input [(ngModel)]="city" placeholder="Enter city name" />
+
+    <br><br>
+
+    <button (click)="fetchWeather()">Check Weather</button>
+
+    <div *ngIf="weather">
+        <h3>{{ weather.city }}</h3>
+        <p>🌡️ Temperature: {{ weather.temperature }} °C</p>
+        <p>💨 Wind Speed: {{ weather.wind }} km/h</p>
+    </div>
+
+    <p style="color:red" *ngIf="error">{{ error }}</p>
+
+</div>
