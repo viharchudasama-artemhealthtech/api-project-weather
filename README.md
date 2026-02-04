@@ -1,27 +1,64 @@
-# Project2
+# Weather App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+A simple Angular 17 application that allows users to search for current weather conditions by city name.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **City Search**: Resolve city names to geographic coordinates.
+- **Current Weather**: Display real-time temperature and wind speed for the selected location.
+- **Integration**: Uses the [Open-Meteo](https://open-meteo.com/) free weather API (no API key required).
 
-## Code scaffolding
+## Tech Stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Framework**: Angular 17 (Standalone Components)
+- **Language**: TypeScript
+- **Styling**: CSS
+- **HTTP Client**: Angular `HttpClient`
+- **Reactive Programming**: RxJS (`switchMap`, `map`, `catchError`)
 
-## Build
+## Getting Started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Prerequisites
 
-## Running unit tests
+- Node.js (v18 or higher recommended)
+- npm (Node Package Manager)
+- Angular CLI (`npm install -g @angular/cli`)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Installation
 
-## Running end-to-end tests
+1. Clone the repository (if applicable) or navigate to the project directory.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Running the Application
 
-## Further help
+Run the development server:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+ng serve
+```
+
+Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+### Building
+
+To build the project for production:
+
+```bash
+ng build
+```
+
+The build artifacts will be stored in the `dist/` directory.
+
+## Project Structure
+
+- `src/app/components/weather`: Contains the main weather display logic and UI.
+- `src/app/services/weather.service.ts`: Handles API communication with Open-Meteo services.
+
+## API Usage
+
+This project uses the following Open-Meteo endpoints:
+- **Geocoding**: `https://geocoding-api.open-meteo.com/v1/search`
+- **Forecast**: `https://api.open-meteo.com/v1/forecast`
